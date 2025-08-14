@@ -529,6 +529,13 @@
             font-size: 0.7rem;
         }
 
+        /* Mobile video specific styling for oz project */
+        .project-card:nth-child(4) .project-image video,
+        .project-card:nth-child(4) .project-image img {
+            object-fit: contain;
+            background: #000;
+        }
+
         .project-content {
             padding: 1.5rem;
         }
@@ -1140,8 +1147,15 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image">
+                <div class="project-image video-container">
+                    <video muted loop playsinline>
+                        <source src="oz.mp4" type="video/mp4">
+                    </video>
                     <img src="oz.png" alt="ÖZ Cevahir - Data Recording System">
+                    <div class="video-indicator">
+                        <i class="fas fa-play"></i>
+                        <span>Demo</span>
+                    </div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">ÖZ Cevahir - Data Recording System</h3>
@@ -1349,19 +1363,28 @@
         // Video hover functionality for projects with videos
         const videoCards = document.querySelectorAll('.project-card .video-container');
         
-        videoCards.forEach(videoContainer => {
+        videoCards.forEach((videoContainer, index) => {
             const projectCard = videoContainer.closest('.project-card');
             const video = videoContainer.querySelector('video');
             
             if (projectCard && video) {
                 projectCard.addEventListener('mouseenter', function() {
                     video.currentTime = 0; // Start from beginning
+                    
+                    // Speed up Qiraat video (3rd video container, index 2)
+                    if (index === 2) { // Qiraat is the 3rd video container
+                        video.playbackRate = 2.0;
+                    } else {
+                        video.playbackRate = 1.0;
+                    }
+                    
                     video.play();
                 });
 
                 projectCard.addEventListener('mouseleave', function() {
                     video.pause();
                     video.currentTime = 0; // Reset to beginning
+                    video.playbackRate = 1.0; // Reset playback rate
                 });
             }
         });
