@@ -507,6 +507,28 @@
             z-index: 1;
         }
 
+        /* Video indicator */
+        .video-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--primary-color);
+            padding: 5px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 3;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .video-indicator i {
+            font-size: 0.7rem;
+        }
+
         .project-content {
             padding: 1.5rem;
         }
@@ -528,8 +550,6 @@
             color: var(--text-secondary);
             margin-bottom: 1rem;
         }
-
-
 
         /* Education Section */
         .education-card {
@@ -1072,6 +1092,10 @@
                         <source src="KUConnect.mp4" type="video/mp4">
                     </video>
                     <img src="KUConnect.png" alt="KUConnect - University Social Media Platform">
+                    <div class="video-indicator">
+                        <i class="fas fa-play"></i>
+                        <span>Demo</span>
+                    </div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">KUConnect</h3>
@@ -1096,8 +1120,15 @@
                 </div>
             </div>
             <div class="project-card">
-                <div class="project-image">
+                <div class="project-image video-container">
+                    <video muted loop playsinline>
+                        <source src="qiraat.mp4" type="video/mp4">
+                    </video>
                     <img src="Qirat.jpg" alt="Qiraat - Publishing Management System">
+                    <div class="video-indicator">
+                        <i class="fas fa-play"></i>
+                        <span>Demo</span>
+                    </div>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Qiraat - Publishing Management System</h3>
@@ -1315,22 +1346,25 @@
             observer.observe(section);
         });
 
-        // Video hover functionality for KUConnect
-        const kuConnectCard = document.querySelector('.project-card:first-child'); // First project card (KUConnect)
-        const videoContainer = kuConnectCard?.querySelector('.video-container');
-        const video = videoContainer?.querySelector('video');
+        // Video hover functionality for projects with videos
+        const videoCards = document.querySelectorAll('.project-card .video-container');
+        
+        videoCards.forEach(videoContainer => {
+            const projectCard = videoContainer.closest('.project-card');
+            const video = videoContainer.querySelector('video');
+            
+            if (projectCard && video) {
+                projectCard.addEventListener('mouseenter', function() {
+                    video.currentTime = 0; // Start from beginning
+                    video.play();
+                });
 
-        if (kuConnectCard && video) {
-            kuConnectCard.addEventListener('mouseenter', function() {
-                video.currentTime = 0; // Start from beginning
-                video.play();
-            });
-
-            kuConnectCard.addEventListener('mouseleave', function() {
-                video.pause();
-                video.currentTime = 0; // Reset to beginning
-            });
-        }
+                projectCard.addEventListener('mouseleave', function() {
+                    video.pause();
+                    video.currentTime = 0; // Reset to beginning
+                });
+            }
+        });
     </script>
 </body>
 </html>
