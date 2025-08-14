@@ -435,34 +435,12 @@
             color: var(--primary-color);
         }
 
-        /* Projects Section */
+        /* Projects Section - FIXED RESPONSIVE DESIGN */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(4, 350px);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            overflow-x: auto;
-            padding-bottom: 1rem;
-            scroll-behavior: smooth;
             width: 100%;
-            max-width: calc(3.5 * 350px + 3 * 2rem); /* Show 3.5 cards */
-        }
-
-        .projects-grid::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .projects-grid::-webkit-scrollbar-track {
-            background: var(--secondary-bg);
-            border-radius: 10px;
-        }
-
-        .projects-grid::-webkit-scrollbar-thumb {
-            background: var(--primary-color);
-            border-radius: 10px;
-        }
-
-        .projects-grid::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary-color);
         }
 
         .project-card {
@@ -471,6 +449,7 @@
             overflow: hidden;
             border: 1px solid var(--accent-bg);
             transition: all 0.3s ease;
+            width: 100%;
         }
 
         .project-card:hover {
@@ -550,23 +529,7 @@
             margin-bottom: 1rem;
         }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
 
-        .project-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.3s ease;
-        }
-
-        .project-link:hover {
-            color: var(--secondary-color);
-        }
 
         /* Education Section */
         .education-card {
@@ -658,6 +621,10 @@
                 width: 250px;
                 height: 250px;
                 font-size: 3rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
         }
 
@@ -751,9 +718,10 @@
                 text-align: center;
             }
 
+            /* Projects responsive design for tablets */
             .projects-grid {
-                grid-template-columns: repeat(4, 280px);
-                max-width: calc(1.5 * 280px + 1 * 2rem);
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
             }
 
             .education-header {
@@ -820,9 +788,10 @@
                 font-size: 1.1rem;
             }
 
+            /* Projects responsive design for mobile phones */
             .projects-grid {
-                grid-template-columns: repeat(4, 250px);
-                max-width: calc(1.3 * 250px + 1 * 2rem);
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .project-content {
@@ -939,12 +908,11 @@
                 </div>
             </div>
             <div class="about-text">
-                <p>Software Engineer and Flutter Developer with hands-on experience in full-stack mobile application development. I have a proven track record of building scalable applications used by university communities and businesses.</p>
-                <p>Expert in Flutter framework, cross-platform development, and API integration with strong problem-solving abilities and clean code practices. Currently based between Istanbul, Turkey and Saudi Arabia.</p>
+                <p>Software Engineer and Flutter Developer with experience in building comprehensive mobile applications. I am working on Flutter framework, cross-platform development, API integration, and state management, having worked on multiple projects.</p>
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>amohamed21@ku.edu.tr</span>
+                        <span>bodysamir2003new@gmail.com</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -975,13 +943,15 @@
                     <span class="skill-tag">Java</span>
                     <span class="skill-tag">C</span>
                     <span class="skill-tag">Kotlin</span>
+                    <span class="skill-tag">JavaScript</span>
+
                 </div>
             </div>
             <div class="skill-category">
                 <h3><i class="fas fa-tools"></i> Frameworks & Technologies</h3>
                 <div class="skills-list">
                     <span class="skill-tag">Flutter</span>
-                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">React.js</span>
                     <span class="skill-tag">RESTful APIs</span>
                     <span class="skill-tag">Firebase</span>
                     <span class="skill-tag">Node.js</span>
@@ -992,17 +962,15 @@
                 <div class="skills-list">
                     <span class="skill-tag">SQL</span>
                     <span class="skill-tag">NoSQL</span>
-                    <span class="skill-tag">Firebase Realtime Database</span>
                     <span class="skill-tag">Firebase Firestore</span>
                 </div>
             </div>
             <div class="skill-category">
                 <h3><i class="fas fa-mobile-alt"></i> Mobile Development</h3>
                 <div class="skills-list">
-                    <span class="skill-tag">Cross-platform Development</span>
-                    <span class="skill-tag">State Management</span>
+                    <span class="skill-tag">Flutter/Kotlin</span>
+                    <span class="skill-tag">State Management (Provider , GetX )</span>
                     <span class="skill-tag">UI/UX Implementation</span>
-                    <span class="skill-tag">Performance Optimization</span>
                 </div>
             </div>
             <div class="skill-category">
@@ -1030,36 +998,53 @@
     <section id="experience">
         <h2 class="section-title">Professional Experience</h2>
         <div class="experience-timeline">
-            <div class="experience-item">
+               <div class="experience-item">
                 <div class="experience-header">
                     <div>
-                        <div class="experience-title">Full-Stack App Developer (Freelance)</div>
-                        <div class="experience-company">OZ Cevahir</div>
-                    </div>
-                    <div class="experience-date">Jan 2024 - Present</div>
-                </div>
-                <ul>
-                    <li>Designed and developed a comprehensive data-recording app using Flutter with Google Sheets API and Firebase backend</li>
-                    <li>Implemented backend database architecture and developed intuitive front-end interface that streamlined employee workflows by 40%</li>
-                    <li>Delivered full-stack solution from requirements gathering to deployment, ensuring data integrity and system reliability</li>
-                    <li>Enhanced user productivity through optimized UI/UX design and efficient data management systems</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Mobile Application Developer Intern</div>
+                        <div class="experience-title">Flutter Developer Intern</div>
                         <div class="experience-company">Blink Tech LLC, Istanbul</div>
                     </div>
                     <div class="experience-date">Aug 2023 - Oct 2023</div>
                 </div>
                 <ul>
-                    <li>Developed production-ready Flutter applications with RESTful API integration and advanced state management</li>
-                    <li>Contributed to enterprise-level shipping company application, implementing user-friendly features</li>
-                    <li>Collaborated with cross-functional teams to deliver high-quality mobile solutions meeting business requirements</li>
+                    <li>Developed Flutter applications with RESTful API integration and state management</li>
+                    <li>Implementing user-friendly features</li>
+                    <li>Basing Apps on Firebase and using Firebase Services like Authentication, Storage , Firestore , Notifications</li>
                     <li>Gained expertise in professional development workflows and industry best practices</li>
                 </ul>
             </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Flutter Developer (Freelance)</div>
+                        <div class="experience-company">OZ Cevahir, Istanbul</div>
+                    </div>
+                    <div class="experience-date">Jan 2024 - Present</div>
+                </div>
+                <ul>
+                    <li>Designed and developed a comprehensive data-recording app using Flutter with Google Sheets API and Firebase backend</li>
+                    <li>Implemented backend database architecture and developed intuitive front-end interface that streamlined employee workflows</li>
+                    <li>Delivered full-stack solution from requirements gathering to deployment, ensuring data integrity and system reliability</li>
+                    <li>Enhanced user productivity through optimized UI/UX design and efficient data management systems</li>
+                </ul>
+            </div>
+
+               <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="experience-title">Full-Stack Software Engineer</div>
+                        <div class="experience-company">Qiraat African, Saudi Arabia</div>
+                    </div>
+                    <div class="experience-date">April 2025 - August 2025</div>
+                </div>
+                <ul>
+                    <li>Architected and developed a comprehensive manuscript management system for academic publishing, encompassing the complete workflow from author submission to final publication approval</li>
+                    <li>Built a multi-role platform with role-based access control, enabling seamless collaboration between authors, reviewers, editors, and administrators throughout the publishing pipeline</li>
+                    <li>Implemented automated workflow management features that streamlined document processing, reduced review cycles, and improved overall publishing efficiency</li>
+                </ul>
+            </div>
+         
             <div class="experience-item">
                 <div class="experience-header">
                     <div>
@@ -1094,10 +1079,7 @@
                     <p class="project-description">
                         Comprehensive social media platform serving Koç University students and staff. Features include posts, messaging, group creation, club activities, library booking, and GPA calculation tools.
                     </p>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                    </div>
+
                 </div>
             </div>
             <div class="project-card">
@@ -1110,10 +1092,7 @@
                     <p class="project-description">
                         Specialized mobile application for laboratory analysis. Remote control of Arduino systems, LAMP fluorescent image analysis, and automated test result determination for research projects.
                     </p>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
-                    </div>
+
                 </div>
             </div>
             <div class="project-card">
@@ -1122,14 +1101,11 @@
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Qiraat - Publishing Management System</h3>
-                    <p class="project-tech">Web Development, Database Management, Workflow Systems</p>
+                    <p class="project-tech">React.js, Firebase, Flutter</p>
                     <p class="project-description">
                         Comprehensive web-based publishing management system for Qirat African Journal. Features manuscript submission portal, desktop workflow management with multi-role access control, and streamlined publishing process from submission to approval.
                     </p>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live System</a>
-                    </div>
+
                 </div>
             </div>
             <div class="project-card">
@@ -1142,10 +1118,7 @@
                     <p class="project-description">
                         Comprehensive data recording application for ÖZ Cevahir fabric importing company. Features real-time data sync, intuitive employee interface, and streamlined workflows that improved productivity by 40%.
                     </p>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live App</a>
-                    </div>
+
                 </div>
             </div>
         </div>
